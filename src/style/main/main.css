@@ -1,0 +1,270 @@
+@charset "UTF-8";
+.choiceContainer {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  width: 100%;
+}
+
+.inner {
+  position: relative;
+  width: 500px;
+  margin: 0 auto;
+  height: 100vh;
+}
+.inner::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background: url(../../../public/img/soop.jpg) 50% 50% no-repeat;
+  background-size: cover;
+}
+@media (max-width: 768px) {
+  .inner {
+    width: 100%;
+  }
+}
+
+.listBox {
+  position: relative;
+  height: 500px;
+}
+@media (max-width: 768px) {
+  .listBox {
+    height: 92vw;
+  }
+}
+.listBox::before {
+  content: "";
+  z-index: 51;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url(../../../public/img/listBox.png) 50% 20% no-repeat;
+  background-size: contain;
+}
+.listBox .listDetailBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  padding: 50px 40px;
+  z-index: 52;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-size: 11px;
+}
+.listBox .listDetailBox .targetDate {
+  text-align: right;
+}
+.listBox .listDetailBox .btnDiv {
+  display: flex;
+  padding-bottom: 30px;
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  .listBox .listDetailBox .btnDiv {
+    padding: 30px 0;
+  }
+}
+.listBox .listDetailBox .btnDiv button {
+  padding: 3px 5px;
+  background-color: #3f3f3f;
+  margin: 0 8px;
+  color: #fff;
+}
+.listBox .listDetailBox .btnDiv button:hover {
+  background-color: #000;
+}
+.listBox .listDetailBox .todoDetail {
+  font-weight: bold;
+  width: 100%;
+  word-wrap: break-word; /* 구형 브라우저 호환성을 위해 */
+  overflow-wrap: break-word; /* 표준 속성 */
+  line-height: 25px;
+  margin: 20px 0 10px;
+}
+.listBox .listDetailBox .backBtn {
+  cursor: pointer;
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  padding: 3px 5px;
+  background-color: #3f3f3f;
+  margin: 0 8px;
+  color: #fff;
+}
+.listBox .listDetailBox .backBtn:hover {
+  background-color: #000;
+}
+.listBox ul {
+  position: relative;
+  z-index: 52;
+  padding: 50px 40px;
+  overflow-y: auto;
+  height: 80%;
+}
+@media (max-width: 768px) {
+  .listBox ul {
+    padding: 5% 4%;
+  }
+}
+.listBox ul li {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  line-height: 50px;
+  border-bottom: 1px solid #969696;
+}
+@media (max-width: 768px) {
+  .listBox ul li {
+    font-size: 11px;
+  }
+}
+.listBox ul li span {
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.listBox ul li p {
+  font-weight: bold;
+}
+.listBox ul li p.todoTxt {
+  margin: 0 10px;
+  width: 70%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.listBox ul li:last-child {
+  border: none;
+}
+
+.pockectList {
+  display: flex;
+  justify-content: space-between;
+}
+.pockectList li {
+  position: relative;
+  z-index: 5;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.pockectList li:hover {
+  transform: scale(1.5);
+}
+
+.txtBox {
+  position: relative;
+  z-index: 5;
+}
+.txtBox .text {
+  width: 100%;
+}
+.txtBox > button {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 3px 5px;
+  background-color: #3f3f3f;
+  color: #fff;
+}
+.txtBox > button:hover {
+  background-color: #000;
+}
+@media (max-width: 768px) {
+  .txtBox > button {
+    font-size: 11px;
+    bottom: 15px;
+  }
+}
+.txtBox p {
+  position: absolute;
+  top: 25px;
+  left: 7%;
+  width: 90%;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  .txtBox p {
+    font-size: 11px;
+  }
+}
+.txtBox p > span {
+  width: 15%;
+  display: block;
+  padding: 3px;
+}
+@media (max-width: 768px) {
+  .txtBox p > span {
+    font-size: 11px;
+  }
+}
+.txtBox p > input {
+  border: 1px solid #969696;
+  position: relative;
+  top: 2px;
+  padding: 3px;
+  box-sizing: border-box;
+  width: 60%;
+  margin: 0 3%;
+}
+.txtBox p > input::-moz-placeholder {
+  color: #555555;
+}
+.txtBox p > input::placeholder {
+  color: #555555;
+}
+@media (max-width: 768px) {
+  .txtBox p > input {
+    font-size: 11px;
+    top: 0;
+    margin: 0;
+  }
+}
+.txtBox p .react-datepicker-wrapper {
+  width: 15%;
+}
+.txtBox p .react-datepicker-wrapper input {
+  width: 100%;
+}
+
+.status {
+  position: relative;
+  z-index: 5;
+}
+.status img {
+  margin: 0 auto;
+}
+.status .name {
+  position: absolute;
+  bottom: 0;
+  width: 120px;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  background: url(../../../public/img/nameBox.png) 50% 50% no-repeat;
+  background-size: contain;
+}
+
+.pocketImg {
+  position: relative;
+  max-width: 150px;
+  width: 33.3333%;
+  margin: 0 auto;
+}
+.pocketImg img {
+  width: 100%;
+}/*# sourceMappingURL=main.css.map */
