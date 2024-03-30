@@ -6,10 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from './pages/Home';
 // import { legacy_createStore as createStore } from 'redux'; //스토어 라이브러리
-import { Provider } from 'react-redux';
-import reducer from './modules/reducer';
+// import { Provider } from 'react-redux';
+// import reducer from './modules/reducer';
 import Todo from './pages/Todo';
-import store from './Store';
+// import store from './Store';
 
 // const store = createStore(reducer);
 
@@ -26,9 +26,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
+    {/* <Provider store={store}> */}
       <RouterProvider router={router} />
-    </Provider>
+    {/* </Provider> */}
   </React.StrictMode>
 );
 

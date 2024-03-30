@@ -1,26 +1,47 @@
 import { useEffect, useState } from "react";
 import Image from "./Image";
-import { useDispatch, useSelector } from "react-redux";
-import { onChange, setData } from "../modules/reducer";
+// import { useDispatch, useSelector } from "react-redux";
+// import { setData } from "../modules/reducer";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import useStateStore from "../store/stateStore";
 
 export default function TextInput({ message, choicePokemon, type }) {
   const [inputTxt, setInputTxt] = useState("");
   const [date, setDate] = useState(new Date());
   // 최소 날짜를 내일로 설정
   const aDayLater = new Date(new Date().setDate(new Date().getDate() + 1));
-  const dispatch = useDispatch();
-  let state = useSelector((state) => {
-    return state.data;
-  });
+  // const dispatch = useDispatch();
+  const {
+    img,
+    imgBack,
+    name,
+    myName,
+    experience1,
+    experience2,
+    list,
+    onChange,
+    setData,
+  } = useStateStore();
+  // let state = useSelector((state) => {
+  //   return state.data;
+  // });
   useEffect(() => {
     setInputTxt("");
-  }, [state.name]);
+  }, [name]);
 
   const handleChoice = () => {
     if (type !== "todo") {
-      localStorage.setItem("myPokemon", JSON.stringify(state));
+      let myPokemon = {
+        img,
+        imgBack,
+        name,
+        myName,
+        experience1,
+        experience2,
+        list,
+      };
+      localStorage.setItem("myPokemon", JSON.stringify(myPokemon));
       choicePokemon(false);
     } else if (type == "todo" && date && inputTxt) {
       var currentDate = new Date();
@@ -38,7 +59,7 @@ export default function TextInput({ message, choicePokemon, type }) {
         check: false,
       });
       localStorage.setItem("myPokemon", JSON.stringify(myPet));
-      dispatch(setData(myPet));
+      setData(myPet);
     } else {
       alert("날짜와 할일을 모두 적어주세요!");
     }
@@ -48,7 +69,7 @@ export default function TextInput({ message, choicePokemon, type }) {
     setInputTxt(e.target.value);
     if (type !== "todo") {
       //return dispatch({ type: 'onChange', myName: e.target.value })
-      return dispatch(onChange(e.target.value));
+      return onChange(e.target.value);
     }
   };
   return (

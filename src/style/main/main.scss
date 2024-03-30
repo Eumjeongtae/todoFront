@@ -238,7 +238,7 @@
   .name {
     position: absolute;
     bottom: 0;
-    width: 120px;
+    width: 100%;
     padding: 10px 0;
     text-align: center;
     font-size: 12px;
@@ -256,4 +256,8 @@
   img {
     width: 100%;
   }
+}
+.react-datepicker-popper{
+  right: 60%;
+  left: unset !important;
 }
